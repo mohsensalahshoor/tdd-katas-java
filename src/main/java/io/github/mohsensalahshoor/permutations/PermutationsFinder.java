@@ -7,7 +7,7 @@ import java.util.Set;
  * This class is capable of finding all the permutations of a given string
  * using the Heap's algorithm.
  * To get all the permutations of a given string:
- * Set<String> perms = new PermutationsFinder().find("example");
+ * Set<String> perms = new PermutationsFinder().find(<string>);
  * @see <a href="https://en.wikipedia.org/wiki/Heap%27s_algorithm" target="_blank">https://en.wikipedia.org/wiki/Heap%27s_algorithm</a>
  */
 public class PermutationsFinder {
@@ -27,7 +27,8 @@ public class PermutationsFinder {
      */
     public Set<String> find(String s) {
         if (s == null || s.isEmpty() || !hasUniqueLetters(s))
-            throw new IllegalArgumentException("The specified string is null or empty");
+            throw new IllegalArgumentException("The specified string is either null, or empty, " +
+                    "or contains duplicate characters");
         char[] chars = s.toCharArray();
         perms = new HashSet<>();
         permute(chars, chars.length);
